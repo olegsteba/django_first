@@ -1,9 +1,8 @@
 from django.shortcuts import HttpResponse
 from django.shortcuts import render
-from .models import Book
+from .models import Book, PublishingHouse, Author
 
 
 def get_books_list(requests):
-    book = Book.objects.get(id_publishing_house__publishing_house_name="Дрофа")
-    print(book.book_name)
-    return HttpResponse(f"<h1>{book.book_name}</h1>")
+    books = Book.objects.all()
+    return render(requests, 'books/index.html', {'title': 'Книги', 'books': books})
