@@ -6,6 +6,7 @@ class Book(models.Model):
     book_name = models.CharField(max_length=100, verbose_name="Название книги")
     author = models.ManyToManyField(
         "Author",
+        related_name="books",
         verbose_name="Авторы",
     )
     description = models.TextField(verbose_name="Описане книги")
