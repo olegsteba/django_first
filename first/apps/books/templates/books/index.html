@@ -5,7 +5,31 @@
     {% for book in books %}
         <div>
             <h2>{{book.book_name}}</h2>
-            <p>{{book.description}}</p>
+            <p>
+                {{book.description}}
+            </p>
+            <p>
+                {{book.date_creation}}
+            </p>
+            <h3>Информация о редакции</h3>
+            <p>
+                {{book.id_publishing_house__publishing_house_name}}
+            </p>
+            <p>
+                {{book.id_publishing_house__address}}
+            </p>
+            <p>
+                {{book.id_publishing_house__contact_phone}}
+            </p>
+            <p>
+                {{book.id_publishing_house__email}}
+            </p>
+            <p>
+                {{book.id_publishing_house__website_link}}
+            </p>
+            <p>
+                {{book.id_publishing_house__date_add}}
+            </p>
             <hr />
         </div>
     {% endfor %}
