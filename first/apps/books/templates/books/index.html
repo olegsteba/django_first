@@ -2,6 +2,9 @@
 
 {% block content %}
 <h1>{{title}}</h1>
+    {% if sale %}
+        <h1>Скидка на все</h1>
+    {% endif %}
     {% for book in books %}
         <div>
             <h2>{{book.book_name}}</h2>
@@ -21,14 +24,12 @@
             <p>
                 {{book.id_publishing_house__contact_phone}}
             </p>
+            <h3>Информация об авторе</h3>
             <p>
-                {{book.id_publishing_house__email}}
+                {{book.author__first_name}} {{book.author__last_name}}
             </p>
             <p>
-                {{book.id_publishing_house__website_link}}
-            </p>
-            <p>
-                {{book.id_publishing_house__date_add}}
+                {{book.author__country}}
             </p>
             <hr />
         </div>
