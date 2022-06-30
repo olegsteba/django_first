@@ -21,6 +21,12 @@ class Book(models.Model):
     date_creation = models.DateField(verbose_name="Дата написания книги")
     date_add = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления")
     is_deletes = models.BooleanField(default=False, verbose_name="Удалено")
+    image = models.ImageField(upload_to="photos/%Y/%m/%d/",
+                              height_field=350,
+                              width_field=150,
+                              verbose_name="Изображения",
+                              null=True,
+                              blank=True,)
 
     def __str__(self):
         return self.book_name
