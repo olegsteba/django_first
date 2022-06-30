@@ -20,6 +20,6 @@ def get_books_list(requests):
         'sale': True,
     }
     return render(requests, 'books/index.html', context)
-    return render(requests, 'books/index.html', {'title': 'Книги', 'books': books})
+
 
 
