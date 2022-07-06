@@ -12,7 +12,7 @@ from .models import Book, PublishingHouse, Author, BookInAuthor
 
 class BookAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'book_name', 'description',
+        'id', 'book_name', 'description', 'image',
         'id_publishing_house', 'date_creation',
         'date_add', 'is_deletes'
     )
@@ -23,7 +23,7 @@ class BookAdmin(admin.ModelAdmin):
     fieldsets = (
         (
             (None, {
-                'fields': ('book_name', 'author', 'description', 'id_publishing_house', 'date_creation',)
+                'fields': ('book_name', 'author', 'description', 'image', 'id_publishing_house', 'date_creation',)
             }),
         )
     )
