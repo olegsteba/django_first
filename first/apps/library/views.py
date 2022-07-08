@@ -1,6 +1,11 @@
-from django.shortcuts import HttpResponse
+from django.views.generic import ListView, DetailView
 from django.shortcuts import render
+from .models import Library, User, SeasonTicket
 
 
-def get_library_list(requests):
-    return HttpResponse('Добро пожаловать в раздел библиотек!')
+class ListLibrary(ListView):
+    template_name = 'library_list.html'
+    queryset = Library.objects.all()
+    context_object_name = "libraries"
+
+
