@@ -1,10 +1,22 @@
 from django.contrib.sites import requests
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, FormView
+from django.core.paginator import Paginator
 from .models import Book, PublishingHouse, Author
 from .forms import BookForm
 from .filters import BookFilter
 from django_filters.views import FilterView
+
+
+def get_book_list(request):
+    books_query = Book.objects.all()
+    pagination_page = Paginator(books_query, 1)
+
+    context = {
+        'books': pagination_page,
+
+    }
+    return render(request, 'books/book_list.html', context=context)
 
 
 class ListBook(FilterView):
@@ -12,6 +24,7 @@ class ListBook(FilterView):
     queryset = Book.objects.all()
     context_object_name = "books"
     filterset_class = BookFilter
+    paginate_by = 1
 
 
 class SearchResultsListView(FilterView):

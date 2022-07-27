@@ -6,7 +6,7 @@ from .models import Book, Author
 
 
 class BookForm(forms.Form):
-    author_query =Author.objects.all()
+    author_query = Author.objects.all()
     author_array = (
         [author.id, f"{author.last_name} {author.first_name}"] for author in author_query
     )
